@@ -5,6 +5,7 @@
     <script src="libraries/angular.js"></script>
     <script src="libraries/jquery-2.1.1.js"></script>
     <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
 
     <script>
     console.log('lsjdasdfsf');
@@ -13,8 +14,15 @@
 
 <body>
     <div ng-controller="PostsController as posts">
-        <div ng-repeat="post in posts.posts">
-            {{post.id}}
+        <div>Click images to like them</div>
+        <div>
+            <input ng-model="showOnlyLiked" type="checkbox"></input>Only show liked
+        </div>
+        <div class="tiles" ng-class="{liked: post.liked, deleted: post.delete_}" ng-repeat="post in posts.posts" ng-click="post.liked=true" ng-hide="!post.liked && showOnlyLiked ">
+            <img ng-hide="post.delete_" ng-src="{{post['photo-url-250']}}">
+            <div class="button-wrapper">
+                <button class="delete-btn" ng-click="posts.deletePost($index); $event.stopPropagation();">Delete</button>
+            </div>
         </div>
     </div>
 </body>

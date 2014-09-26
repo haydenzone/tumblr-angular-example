@@ -4,10 +4,24 @@ body {
 .tiles {
     display: inline-block;
     padding: 10px;
+    height: 130px;
+    width: 100px;
+    vertical-align: top;
+    position: relative;
 }
 .tiles img {
-    width: 100px;
+    width: 80px;
 }
 .tiles.liked {
     background-color: yellow;
 }
+.tiles.deleted {
+    background-color: red;
+}
+.tiles .button-wrapper {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.delete-btn {}
